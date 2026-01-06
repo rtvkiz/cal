@@ -4,6 +4,8 @@ A terminal calendar app with events and holidays.
 
 ![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)
 
+![cal screenshot](screenshot.png)
+
 ## Features
 
 - **Month view** - Navigate months with keyboard
@@ -16,7 +18,7 @@ A terminal calendar app with events and holidays.
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/cal.git
+git clone https://github.com/rtvkiz/cal.git
 cd cal
 
 # Create virtual environment
