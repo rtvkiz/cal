@@ -39,6 +39,7 @@ class CalendarApp(App):
         Binding("up", "move_up", "Up", show=False),
         Binding("down", "move_down", "Down", show=False),
         Binding("enter", "select_day", "Select", show=False),
+        Binding("escape", "go_back", "Back", show=False),
     ]
 
     def __init__(self, **kwargs) -> None:
@@ -139,6 +140,10 @@ class CalendarApp(App):
     def action_select_day(self) -> None:
         if self._current_view == "month":
             self._show_view("day")
+
+    def action_go_back(self) -> None:
+        if self._current_view in ("day", "agenda"):
+            self._show_view("month")
 
     def action_add_event(self) -> None:
         default_date = date.today()

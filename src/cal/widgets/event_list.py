@@ -11,10 +11,11 @@ from ..models import Event
 class EventItem(ListItem):
     """A single event item in the list."""
 
-    def __init__(self, event: Event, show_date: bool = False) -> None:
+    def __init__(self, event: Event, show_date: bool = False, show_full: bool = False) -> None:
         super().__init__()
         self.event = event
         self.show_date = show_date
+        self.show_full = show_full
 
     def compose(self) -> ComposeResult:
         time_str = self.event.display_time
@@ -26,7 +27,7 @@ class EventItem(ListItem):
 
         if self.event.description:
             desc = self.event.description
-            if len(desc) > 50:
+            if not self.show_full and len(desc) > 50:
                 desc = desc[:47] + "..."
             yield Static(f"  {desc}", classes="event-desc")
 
@@ -41,10 +42,11 @@ class EventList(Widget):
             self.event = event
             super().__init__()
 
-    def __init__(self, events: list[Event] | None = None, show_date: bool = False, **kwargs) -> None:
+    def __init__(self, events: list[Event] | None = None, show_date: bool = False, show_full: bool = False, **kwargs) -> None:
         super().__init__(**kwargs)
         self._events = events or []
         self.show_date = show_date
+        self.show_full = show_full
 
     def compose(self) -> ComposeResult:
         yield ListView(id="event-listview")
@@ -61,7 +63,7 @@ class EventList(Widget):
             return
 
         for event in self._events:
-            listview.mount(EventItem(event, show_date=self.show_date))
+            listview.mount(EventItem(event, show_date=self.show_date, show_full=self.show_full))
 
     def set_events(self, events: list[Event]) -> None:
         """Update the displayed events."""

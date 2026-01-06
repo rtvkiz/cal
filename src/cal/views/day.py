@@ -32,7 +32,7 @@ class DayView(Widget):
         with Vertical(id="day-view-container"):
             yield Static(id="day-title")
             yield Static(id="holiday-banner")
-            yield EventList(id="day-events")
+            yield EventList(id="day-events", show_full=True)
 
     def on_mount(self) -> None:
         self._update_display()

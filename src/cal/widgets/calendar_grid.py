@@ -95,11 +95,18 @@ class CalendarGrid(Widget):
         self._cells: list[DayCell] = []
 
     def compose(self) -> ComposeResult:
-        yield Static("Mo  Tu  We  Th  Fr  Sa  Su", id="weekday-header")
+        yield Grid(id="weekday-header")
         yield Grid(id="calendar-grid")
 
     def on_mount(self) -> None:
+        self._build_weekday_header()
         self._rebuild_grid()
+
+    def _build_weekday_header(self) -> None:
+        """Build the weekday header row."""
+        header = self.query_one("#weekday-header", Grid)
+        for day in ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"]:
+            header.mount(Static(f"{day:^4}", classes="weekday-cell"))
 
     def watch_current_month(self, old_month: date, new_month: date) -> None:
         if old_month != new_month:

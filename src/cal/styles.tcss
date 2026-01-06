@@ -48,8 +48,17 @@ Screen {
 }
 
 #weekday-header {
+    grid-size: 7;
+    grid-gutter: 0;
+    height: auto;
+    margin-bottom: 1;
+}
+
+.weekday-cell {
+    width: 4;
+    height: 1;
     color: $text-muted;
-    padding-bottom: 1;
+    content-align: center middle;
 }
 
 #calendar-grid {
