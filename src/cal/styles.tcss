@@ -1,0 +1,227 @@
+/* Calendar TUI Styles */
+
+Screen {
+    background: $surface;
+}
+
+#main-container {
+    height: 100%;
+    padding: 1;
+}
+
+/* View Tabs */
+#view-tabs {
+    height: 3;
+    dock: top;
+    padding: 0 1;
+}
+
+.tab {
+    width: auto;
+    padding: 0 2;
+    margin-right: 1;
+    background: $surface-darken-1;
+    color: $text-muted;
+}
+
+.tab.active {
+    background: $primary;
+    color: $text;
+    text-style: bold;
+}
+
+/* Views Container */
+#views-container {
+    height: 100%;
+    padding-top: 1;
+}
+
+/* Month View */
+#month-view-container {
+    height: 100%;
+}
+
+#month-title {
+    text-style: bold;
+    color: $primary;
+    padding-bottom: 1;
+}
+
+#weekday-header {
+    color: $text-muted;
+    padding-bottom: 1;
+}
+
+#calendar-grid {
+    grid-size: 7;
+    grid-gutter: 0;
+    height: auto;
+}
+
+DayCell {
+    width: 4;
+    height: 1;
+    content-align: center middle;
+}
+
+DayCell.today {
+    background: $primary;
+    color: $text;
+    text-style: bold;
+}
+
+DayCell.selected {
+    background: $secondary;
+    color: $text;
+}
+
+DayCell.has-events {
+    color: $success;
+}
+
+DayCell.other-month {
+    color: $text-disabled;
+}
+
+DayCell.holiday {
+    color: $error;
+    text-style: bold;
+}
+
+DayCell.holiday.selected {
+    background: $secondary;
+    color: $error;
+}
+
+DayCell.holiday.today {
+    background: $primary;
+    color: $error;
+}
+
+/* Day View */
+#day-view-container {
+    height: 100%;
+}
+
+#day-title {
+    text-style: bold;
+    color: $primary;
+    padding-bottom: 1;
+}
+
+#holiday-banner {
+    background: $error 20%;
+    color: $error;
+    text-style: bold;
+    padding: 0 1;
+    margin-bottom: 1;
+}
+
+#day-events {
+    height: 100%;
+}
+
+/* Agenda View */
+#agenda-view-container {
+    height: 100%;
+}
+
+#agenda-title {
+    text-style: bold;
+    color: $primary;
+    padding-bottom: 1;
+}
+
+#agenda-events {
+    height: 100%;
+}
+
+/* Event List */
+#event-listview {
+    height: 100%;
+    border: solid $primary-background;
+    padding: 1;
+}
+
+EventItem {
+    height: auto;
+    padding: 0 1;
+    margin-bottom: 1;
+}
+
+EventItem:hover {
+    background: $surface-lighten-1;
+}
+
+EventItem > .event-title {
+    text-style: bold;
+}
+
+EventItem > .event-desc {
+    color: $text-muted;
+}
+
+/* Event Form Modal */
+EventForm {
+    align: center middle;
+}
+
+#event-form-container {
+    width: 60;
+    height: auto;
+    padding: 1 2;
+    background: $surface;
+    border: solid $primary;
+}
+
+#form-title {
+    text-style: bold;
+    color: $primary;
+    padding-bottom: 1;
+}
+
+EventForm Label {
+    padding-top: 1;
+    color: $text-muted;
+}
+
+EventForm Input {
+    margin-bottom: 1;
+}
+
+#form-buttons {
+    height: 3;
+    padding-top: 1;
+    align: center middle;
+}
+
+#form-buttons Button {
+    margin: 0 1;
+}
+
+/* Confirm Dialog */
+ConfirmDialog {
+    align: center middle;
+}
+
+#confirm-dialog {
+    width: 50;
+    height: auto;
+    padding: 2;
+    background: $surface;
+    border: solid $warning;
+}
+
+#confirm-message {
+    text-align: center;
+    padding-bottom: 1;
+}
+
+#confirm-buttons {
+    height: 3;
+    align: center middle;
+}
+
+#confirm-buttons Button {
+    margin: 0 1;
+}
