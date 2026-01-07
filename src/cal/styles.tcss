@@ -234,3 +234,14 @@ ConfirmDialog {
 #confirm-buttons Button {
     margin: 0 1;
 }
+
+/* Historical Event Widget */
+#historical-event {
+    dock: bottom;
+    height: auto;
+    padding: 1 2;
+    margin-top: 1;
+    background: $surface-darken-1;
+    color: $text-muted;
+    border-top: solid $primary-background;
+}

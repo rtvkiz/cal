@@ -9,6 +9,7 @@ from textual.containers import Vertical
 from textual.message import Message
 
 from ..widgets.calendar_grid import CalendarGrid
+from ..widgets.historical_event import HistoricalEventWidget
 
 
 class MonthView(Widget):
@@ -34,6 +35,7 @@ class MonthView(Widget):
                 holiday_provider=self.holiday_provider,
                 id="calendar",
             )
+            yield HistoricalEventWidget(id="historical-event")
 
     def on_mount(self) -> None:
         self._update_title()
