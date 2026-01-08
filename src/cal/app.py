@@ -72,7 +72,8 @@ class CalendarApp(App):
 
     def on_mount(self) -> None:
         self._show_view("month")
-        self.set_focus(None)  # Ensure app-level key bindings work immediately
+        # Defer focus clearing to after render completes - ensures app-level bindings work
+        self.call_after_refresh(self.set_focus, None)
 
     def _show_view(self, view_name: str) -> None:
         """Switch to the specified view."""
